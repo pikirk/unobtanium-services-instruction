@@ -1,0 +1,23 @@
+{
+  "name": "instruction-handler",
+  "version": "1.0.0",
+  "description": "Lambda handler for CNC instruction API",
+  "main": "dist/index.js",
+  "scripts": {
+    "clean": "rm -rf dist instruction-handler.zip",
+    "build": "tsc",
+    "package": "npm run clean && npm run build && cd dist && zip -r ../instruction-handler.zip .",
+    "test": "echo 'No tests yet' && exit 0",
+    "lint": "eslint src/**/*.ts",
+    "lint:fix": "eslint src/**/*.ts --fix"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@types/aws-lambda": "^8.10.145",
+    "@types/node": "^20.10.0",
+    "@typescript-eslint/eslint-plugin": "^6.0.0",
+    "@typescript-eslint/parser": "^6.0.0",
+    "eslint": "^8.45.0",
+    "typescript": "^5.9.3"
+  }
+}
