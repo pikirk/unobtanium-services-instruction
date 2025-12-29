@@ -1,16 +1,16 @@
 output "lambda_function_arn" {
   description = "ARN of the Lambda function"
-  value       = aws_lambda_function.engraver_handler.arn
+  value       = aws_lambda_function.instruction_handler.arn
 }
 
 output "lambda_function_name" {
   description = "Name of the Lambda function"
-  value       = aws_lambda_function.engraver_handler.function_name
+  value       = aws_lambda_function.instruction_handler.function_name
 }
 
 output "lambda_invoke_arn" {
   description = "Invoke ARN of the Lambda function (for API Gateway integration)"
-  value       = aws_lambda_function.engraver_handler.invoke_arn
+  value       = aws_lambda_function.instruction_handler.invoke_arn
 }
 
 output "lambda_execution_role_arn" {
