@@ -14,7 +14,9 @@ export const handler = async (
     // Handle OPTIONS for CORS preflight
     if (method === 'OPTIONS') {
       console.log('Handling OPTIONS request for CORS preflight');
-      return optionsResponse();
+      const respone = optionsResponse();
+      console.log('OPTIONS response:', respone);
+      return respone;
     }
 
     // GET /instructions/{id}
