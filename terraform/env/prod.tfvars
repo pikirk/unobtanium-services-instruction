@@ -1,0 +1,10 @@
+env                          = "prod"
+lambda_artifacts_bucket_name = "lambda-artifacts-services-prod"
+lambda_function_name         = "instruction-handler-prod"
+lambda_runtime               = "nodejs20.x"
+lambda_timeout_secs          = 30
+lambda_memory_size_mb        = 256
+lambda_handler               = "index.handler"
+lambda_package_file_name     = "instruction-lambda_prod.zip"
+lambda_artifact_key          = "handlers/instruction/instruction-lambda_prod.zip"
+api_gateway_identifier       = "qzjucqr19e"
