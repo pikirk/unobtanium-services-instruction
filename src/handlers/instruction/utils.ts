@@ -1,10 +1,10 @@
-import { APIGatewayProxyResult } from 'aws-lambda';
+import { APIGatewayProxyResult, APIGatewayProxyResultV2 } from 'aws-lambda';
 import { ApiResponse } from './types';
 
 export const formatResponse = (
   data: any,
   statusCode: number = 200
-): APIGatewayProxyResult => {
+): APIGatewayProxyResultV2 => {
   const response: ApiResponse = {
     result: data,
     resultCode: statusCode
@@ -22,7 +22,7 @@ export const formatResponse = (
   };
 };
 
-export const optionsResponse = (): APIGatewayProxyResult => {
+export const optionsResponse = (): APIGatewayProxyResultV2 => {
   return {
     statusCode: 200,
     headers: {
