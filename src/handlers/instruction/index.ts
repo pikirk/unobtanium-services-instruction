@@ -13,17 +13,20 @@ export const handler = async (
 
     // Handle OPTIONS for CORS preflight
     if (method === 'OPTIONS') {
+      console.log('Handling OPTIONS request for CORS preflight');
       return optionsResponse();
     }
 
     // GET /instructions/{id}
     if (method === 'GET' && pathParameters?.id) {
+      console.log(`Fetching instruction with ID: ${pathParameters.id}`);
       const result = await getInstructionById(pathParameters.id);
       return formatResponse(result.data, result.statusCode);
     }
 
     // GET /instructions (with optional pagination)
     if (method === 'GET') {
+      console.log('Fetching list of instructions with pagination if provided');
       const queryParams = event.queryStringParameters || {};
       const result = await getInstructions(queryParams);
       return formatResponse(result.data, result.statusCode);
@@ -31,6 +34,7 @@ export const handler = async (
 
     // POST /instructions
     if (method === 'POST') {
+      console.log('Creating a new instruction');
       const result = await createInstruction(event.body? JSON.parse(event.body) : {});
       return formatResponse(result.data, result.statusCode);
     }
