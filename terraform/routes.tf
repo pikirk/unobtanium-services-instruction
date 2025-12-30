@@ -39,11 +39,11 @@ resource "aws_apigatewayv2_route" "post_instruction" {
 #}
 
 # Route: OPTIONS /instructions/{id} (CORS preflight)
-resource "aws_apigatewayv2_route" "options_instruction_by_id" {
-  api_id    = data.aws_apigatewayv2_api.gateway_lookup.id
-  route_key = "OPTIONS /instruction/{id}"
-  target    = "integrations/${aws_apigatewayv2_integration.instruction_handler.id}"
-}
+#resource "aws_apigatewayv2_route" "options_instruction_by_id" {
+#  api_id    = data.aws_apigatewayv2_api.gateway_lookup.id
+#  route_key = "OPTIONS /instruction/{id}"
+#  target    = "integrations/${aws_apigatewayv2_integration.instruction_handler.id}"
+#}
 
 # Lambda permission for API Gateway to invoke the function
 resource "aws_lambda_permission" "api_gateway_invoke" {
