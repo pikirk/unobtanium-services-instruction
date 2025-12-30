@@ -12,18 +12,23 @@ export const handler = async (
     const pathParameters = event.pathParameters;
 
     // Handle OPTIONS for CORS preflight
-    if (method === 'OPTIONS') {
-      return optionsResponse();
-    }
+    //if (method === 'OPTIONS') {
+    //  console.log('Handling OPTIONS request for CORS preflight');
+    //  const respone = optionsResponse();
+    //  console.log('OPTIONS response:', respone);
+    //  return respone;
+    //}
 
     // GET /instructions/{id}
     if (method === 'GET' && pathParameters?.id) {
+      console.log(`Fetching instruction with ID: ${pathParameters.id}`);
       const result = await getInstructionById(pathParameters.id);
       return formatResponse(result.data, result.statusCode);
     }
 
     // GET /instructions (with optional pagination)
     if (method === 'GET') {
+      console.log('Fetching list of instructions with pagination if provided');
       const queryParams = event.queryStringParameters || {};
       const result = await getInstructions(queryParams);
       return formatResponse(result.data, result.statusCode);
@@ -31,7 +36,11 @@ export const handler = async (
 
     // POST /instructions
     if (method === 'POST') {
-      const result = await createInstruction(event.body? JSON.parse(event.body) : {});
+      console.log('Creating a new instruction');
+      console.log('Request body in:', event.body);
+      const rb = event.body ?? "{}";
+      console.log('Parsed request body:', rb);
+      const result = await createInstruction(rb);
       return formatResponse(result.data, result.statusCode);
     }
 
