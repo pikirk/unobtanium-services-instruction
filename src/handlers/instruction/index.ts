@@ -12,12 +12,12 @@ export const handler = async (
     const pathParameters = event.pathParameters;
 
     // Handle OPTIONS for CORS preflight
-    if (method === 'OPTIONS') {
-      console.log('Handling OPTIONS request for CORS preflight');
-      const respone = optionsResponse();
-      console.log('OPTIONS response:', respone);
-      return respone;
-    }
+    //if (method === 'OPTIONS') {
+    //  console.log('Handling OPTIONS request for CORS preflight');
+    //  const respone = optionsResponse();
+    //  console.log('OPTIONS response:', respone);
+    //  return respone;
+    //}
 
     // GET /instructions/{id}
     if (method === 'GET' && pathParameters?.id) {

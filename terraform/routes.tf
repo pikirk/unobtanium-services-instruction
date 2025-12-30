@@ -32,11 +32,11 @@ resource "aws_apigatewayv2_route" "post_instruction" {
 }
 
 # Route: OPTIONS /instruction (CORS preflight)
-resource "aws_apigatewayv2_route" "options_instructions" {
-  api_id    = data.aws_apigatewayv2_api.gateway_lookup.id
-  route_key = "OPTIONS /instruction"
-  target    = "integrations/${aws_apigatewayv2_integration.instruction_handler.id}"
-}
+# resource "aws_apigatewayv2_route" "options_instructions" {
+#  api_id    = data.aws_apigatewayv2_api.gateway_lookup.id
+#  route_key = "OPTIONS /instruction"
+#  target    = "integrations/${aws_apigatewayv2_integration.instruction_handler.id}"
+#}
 
 # Route: OPTIONS /instructions/{id} (CORS preflight)
 resource "aws_apigatewayv2_route" "options_instruction_by_id" {
