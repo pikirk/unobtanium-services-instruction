@@ -37,7 +37,10 @@ export const handler = async (
     // POST /instructions
     if (method === 'POST') {
       console.log('Creating a new instruction');
-      const result = await createInstruction(event.body? JSON.parse(event.body) : {});
+      console.log('Request body in:', event.body);
+      const rb = event.body ?? "{}";
+      console.log('Parsed request body:', rb);
+      const result = await createInstruction(rb);
       return formatResponse(result.data, result.statusCode);
     }
 
